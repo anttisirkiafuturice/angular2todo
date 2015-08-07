@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-2">
+        <div class="bottom-offset">
+            <input type="text" class="form-control" placeholder="New TODO" autofocus #newtodo (keyup)="add($event,newtodo)"/>
+        </div>
+        <div *ng-for="#todo of todoStore.todoList">
+            <input type="checkbox" [checked]="todo.done" (click)="toggleTodoState(todo)"/>
+            <span [class.done]="todo.done">{{todo.text | lowercase}}</span>
+        </div>
+    </div>
+    <div class="col-xs-4"></div>
+</div>
